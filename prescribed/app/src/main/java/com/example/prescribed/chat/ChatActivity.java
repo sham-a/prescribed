@@ -70,7 +70,7 @@ public class ChatActivity extends AppCompatActivity implements RoomListener {
     // Successfully connected to Scaledrone room
     @Override
     public void onOpen(Room room) {
-        System.out.println("Conneted to room");
+        System.out.println("Connected to room");
     }
 
     // Connecting to Scaledrone room failed
