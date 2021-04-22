@@ -5,6 +5,7 @@
         android:id="@+id/FAQFragment"
         android:title="FAQ"
         android:icon="@drawable/ic_question_answer"/>
+
     <item
         android:id="@+id/chatFragment"
         android:title="Chat"
