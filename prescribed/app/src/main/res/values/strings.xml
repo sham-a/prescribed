@@ -9,4 +9,23 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    <!-- String related to add med -->
+    <string name="add_med_question0">What is the name of the med?</string>
+    <string name="add_med_question1">How often do you have to take your medication?</string>
+    <string name="add_med_question2">When will be the next time you take your medication?</string>
+    <string name="add_med_question3">Extra notes to add?</string>
+    <string name="add_med_field0">Enter Name</string>
+    <string name="add_med_next_button">Next</string>
+    <string name="add_med_done_button">Done</string>
+    <string name="add_med_back_button">Back</string>
+    <string-array name="freq_spinner_array">
+        <item>Hour(s)</item>
+        <item>Day(s)</item>
+        <item>Week(s)</item>
+    </string-array>
+    <string name="freq_hint">Enter Number</string>
+    <string name="time_hint">HH:MM</string>
+    <string name="date_hint">DD/MM/YYYY</string>
+    <string name="notes_hint">Notes</string>
 </resources>

@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.prescribed.R;
+import com.example.prescribed.addMed.AddMedActivity;
 import com.example.prescribed.chat.ChatActivity;
 import com.example.prescribed.ui.login.LoginViewModel;
 import com.example.prescribed.ui.login.LoginViewModelFactory;
@@ -72,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 if (loginResult.getSuccess() != null) {
                     updateUiWithUser(loginResult.getSuccess());
-                    startActivity(new Intent(LoginActivity.this, ChatActivity.class));
+                    startActivity(new Intent(LoginActivity.this, AddMedActivity.class));
                 }
                 setResult(Activity.RESULT_OK);
 
