@@ -1,5 +1,6 @@
 package com.example.prescribed.chat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -125,4 +126,6 @@ public class ChatActivity extends AppCompatActivity implements RoomListener {
             editText.getText().clear();
         }
     }
+
+
 }
