@@ -9,6 +9,29 @@
 
 
     <Button
+        android:id="@+id/button_settings2"
+        android:layout_width="73dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="#ACB6EC"
+        android:backgroundTint="#ABB2D8"
+        android:elegantTextHeight="false"
+        android:shadowColor="#FFFFFF"
+        app:cornerRadius="62dp"
+        app:icon="@drawable/ic_add"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:iconSize="56dp"
+        app:iconTint="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/morning_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.929"
+        app:strokeColor="#FFFFFF"
+        tools:ignore="OnClick" />
+
+    <Button
         android:id="@+id/morning_button"
         android:layout_width="344dp"
         android:layout_height="97dp"
@@ -112,7 +135,7 @@
         app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.695" />
+        app:layout_constraintVertical_bias="0.789" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -137,7 +160,7 @@
         app:layout_constraintHorizontal_bias="0.233"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.636" />
+        app:layout_constraintVertical_bias="0.715" />
 
     <Button
         android:id="@+id/button_settings"
@@ -158,7 +181,7 @@
         app:layout_constraintBottom_toTopOf="@+id/morning_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.116"
+        app:layout_constraintVertical_bias="0.224"
         app:strokeColor="#FFFFFF"
         tools:ignore="OnClick" />
 
