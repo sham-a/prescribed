@@ -31,13 +31,18 @@ public class MainActivity extends AppCompatActivity {
 
         public void onClick(View view){
 
-        switch(view.getId()) {
-            case R.id.button_chat:
-                Intent intent = new Intent();
-                intent.setClassName("com.example.prescribed", "com.example.prescribed.chat.ChatActivity");
-                startActivity(intent);
+            switch(view.getId()) {
+                case R.id.button_chat:
+                    Intent intent = new Intent();
+                    intent.setClassName("com.example.prescribed", "com.example.prescribed.chat.ChatActivity");
+                    startActivity(intent);
+                case R.id.morning_button:
+                    Intent intent1 = new Intent();
+                    intent1.setClassName("com.example.prescribed", "com.example.prescribed.MedicationActivity");
+                    startActivity(intent1);
                 break;
-        }}
+            }
+        }
 
 
 

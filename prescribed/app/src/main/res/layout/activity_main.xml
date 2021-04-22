@@ -10,12 +10,13 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="411dp"
         android:layout_height="78dp"
-        android:background="#fff"
+        android:background="#EFDED6"
+        app:itemIconSize="40dp"
+        app:itemTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu"
-        app:itemIconSize="40dp"/>
+        app:menu="@menu/bottom_menu" />
 
     <fragment
         android:id="@+id/fragment"

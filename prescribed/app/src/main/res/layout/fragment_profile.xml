@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#CEEFDED6"
     tools:context=".ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/morning_button"
         android:layout_width="344dp"
         android:layout_height="97dp"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="228dp"
         android:layout_marginEnd="159dp"
         android:background="#E6BEA3"
         android:backgroundTint="#E6BEA3"
@@ -24,75 +23,79 @@
         android:textAlignment="viewStart"
         android:textColor="#000000"
         android:textSize="24sp"
+        android:onClick="onClick"
         app:cornerRadius="48dp"
         app:iconTint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="OnClick" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="344dp"
         android:layout_height="97dp"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="159dp"
         android:background="#E6BEA3"
         android:backgroundTint="#E6BEA3"
+        android:drawableRight="@drawable/ic_arrow_right"
+        android:drawableTint="#000000"
         android:lineSpacingExtra="8sp"
         android:text="   DAY PILLS"
         android:textAlignment="viewStart"
         android:textColor="#000000"
         android:textSize="24sp"
-        android:drawableRight="@drawable/ic_arrow_right"
-        android:drawableTint="#000000"
         app:cornerRadius="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/morning_button" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="344dp"
         android:layout_height="97dp"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="159dp"
         android:background="#E6BEA3"
         android:backgroundTint="#E6BEA3"
+        android:drawableRight="@drawable/ic_arrow_right"
+        android:drawableTint="#000000"
         android:lineSpacingExtra="8sp"
         android:text="   EVENING PILLS"
         android:textAlignment="viewStart"
         android:textColor="#000000"
         android:textSize="24sp"
-        android:drawableRight="@drawable/ic_arrow_right"
-        android:drawableTint="#000000"
         app:cornerRadius="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button4"
-        app:layout_constraintVertical_bias="0.006" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="344dp"
         android:layout_height="97dp"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="159dp"
         android:background="#E6BEA3"
         android:backgroundTint="#E6BEA3"
+        android:drawableRight="@drawable/ic_arrow_right"
+        android:drawableTint="#000000"
         android:lineSpacingExtra="8sp"
         android:text="   NIGHT PILLS"
         android:textAlignment="viewStart"
         android:textColor="#000000"
         android:textSize="24sp"
-        android:drawableRight="@drawable/ic_arrow_right"
-        android:drawableTint="#000000"
-        app:cornerRadius="48dp"
+        app:cornerRadius="75dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button5"
         app:layout_constraintVertical_bias="0.0" />
@@ -104,11 +107,12 @@
         android:foregroundTint="#000000"
         android:src="@drawable/circle"
         android:tint="#B5B5B5B5"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/morning_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.695" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -128,12 +132,35 @@
         android:text="User"
         android:textColor="#000000"
         android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/morning_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintHorizontal_bias="0.233"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.496" />
+        app:layout_constraintVertical_bias="0.636" />
+
+    <Button
+        android:id="@+id/button_settings"
+        android:layout_width="73dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="#ACB6EC"
+        android:backgroundTint="#ABB2D8"
+        android:elegantTextHeight="false"
+        android:shadowColor="#FFFFFF"
+        app:cornerRadius="62dp"
+        app:icon="@drawable/ic_settings"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:iconSize="56dp"
+        app:iconTint="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/morning_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.116"
+        app:strokeColor="#FFFFFF"
+        tools:ignore="OnClick" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
