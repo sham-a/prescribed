@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,7 +26,6 @@ import androidx.core.content.ContextCompat;
 
 import com.example.prescribed.R;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -37,13 +35,16 @@ public class AddMedActivity extends AppCompatActivity {
     private EditText editText;
     private EditText editText2;
     private List<String> answers;
-    private int questionCount = 0;
-    private Button nextButton;
+    private int questionCount;
     private ImageView talkButton;
+    private ImageView talkButtonInside;
     private Spinner freq_spinner;
 
     private SpeechRecognizer speechRecognizer;
+    private Intent speechRecognizerIntent;
     public static final Integer RecordAudioRequestCode = 1;
+
+    private final int NUMBER_OF_QUESTIONS = 4;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,10 +52,16 @@ public class AddMedActivity extends AppCompatActivity {
         setContentView(R.layout.enter_med_name);
 
         editText = (EditText) findViewById(R.id.addMedText_name);
-        nextButton = (Button) findViewById(R.id.addMed_next_name);
         talkButton = (ImageView) findViewById(R.id.talkButton_name);
+        talkButtonInside = (ImageView) findViewById(R.id.talkButton_name_inside);
 
-        answers = new ArrayList<>(4);
+        answers = new ArrayList<>(NUMBER_OF_QUESTIONS);
+        questionCount = 0;
+
+        for(int i=0; i<NUMBER_OF_QUESTIONS; i++){
+            answers.add("");
+        }
+
 
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
             checkPermission();
@@ -73,7 +80,7 @@ public class AddMedActivity extends AppCompatActivity {
 
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
 
-        final Intent speechRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        speechRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
 
@@ -102,9 +109,10 @@ public class AddMedActivity extends AppCompatActivity {
 
             @Override
             public void onResults(Bundle bundle) {
-                talkButton.setImageResource(R.drawable.green_mic_better);
+                talkButtonInside.setImageResource(R.drawable.ic_mic_black);
                 ArrayList<String> data = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
                 editText.setText(data.get(0));
+                editText.setHint(R.string.add_med_field0);
             }
 
             @Override
@@ -115,19 +123,7 @@ public class AddMedActivity extends AppCompatActivity {
         });
 
 
-        talkButton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_UP){
-                    speechRecognizer.stopListening();
-                }
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN){
-                    talkButton.setImageResource(R.drawable.green_mic);
-                    speechRecognizer.startListening(speechRecognizerIntent);
-                }
-                return false;
-            }
-        });
+        setListener(talkButton);
 
 
     }
@@ -158,12 +154,7 @@ public class AddMedActivity extends AppCompatActivity {
         switch(questionCount)
         {
             case 0:
-                if(answers.size() > questionCount){
-                    answers.set(questionCount, editText.getText().toString());
-                }
-                else{
-                    answers.add(questionCount, editText.getText().toString());
-                }
+                answers.set(questionCount, editText.getText().toString());
 
                 this.setContentView(R.layout.enter_med_freq);
 
@@ -193,12 +184,8 @@ public class AddMedActivity extends AppCompatActivity {
                 }
                 break;
             case 1:
-                if(answers.size() > questionCount){
-                    answers.set(questionCount, editText.getText().toString() + "~" + freq_spinner.getSelectedItem().toString());
-                }
-                else{
-                    answers.add(questionCount, editText.getText().toString() + "~" + freq_spinner.getSelectedItem().toString());
-                }
+
+                answers.set(questionCount, editText.getText().toString() + "~" + freq_spinner.getSelectedItem().toString());
 
                 this.setContentView(R.layout.enter_med_start);
 
@@ -217,16 +204,14 @@ public class AddMedActivity extends AppCompatActivity {
                 break;
             case 2:
 
-                if(answers.size() > questionCount){
-                    answers.set(questionCount, editText.getText().toString() + "~" + editText2.getText().toString());
-                }
-                else{
-                    answers.add(questionCount, editText.getText().toString() + "~" + editText2.getText().toString());
-                }
+                answers.set(questionCount, editText.getText().toString() + "~" + editText2.getText().toString());
 
                 this.setContentView(R.layout.enter_med_notes);
 
                 editText = (EditText) findViewById(R.id.editText_notes);
+                talkButton = (ImageView) findViewById(R.id.talkButton_notes);
+                talkButtonInside = (ImageView) findViewById(R.id.talkButton_notes_inside);
+                setListener(talkButton);
 
                 questionCount++;
                 break;
@@ -243,6 +228,9 @@ public class AddMedActivity extends AppCompatActivity {
 
                 editText = (EditText) findViewById(R.id.addMedText_name);
                 editText.setText(answers.get(questionCount));
+                talkButton = (ImageView) findViewById(R.id.talkButton_name);
+                talkButtonInside = (ImageView) findViewById(R.id.talkButton_name_inside);
+                setListener(talkButton);
                 break;
             case 2:
                 questionCount--;
@@ -283,6 +271,23 @@ public class AddMedActivity extends AppCompatActivity {
     }
 
     public void doneClicked(View view){
+        answers.set(questionCount, editText.getText().toString());
+        medRecord.storeMedication((ArrayList<String>)answers);
+    }
 
+    private void setListener(ImageView view){
+        view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_UP){
+                    speechRecognizer.stopListening();
+                }
+                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN){
+                    talkButtonInside.setImageResource(R.drawable.ic_mic_blue);
+                    speechRecognizer.startListening(speechRecognizerIntent);
+                }
+                return false;
+            }
+        });
     }
 }

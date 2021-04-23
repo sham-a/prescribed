@@ -8,31 +8,51 @@
     android:background="#F1DFDA"
     tools:context="com.example.prescribed.addMed.AddMedActivity">
 
+    <ImageView
+        android:id="@+id/talkButton_notes"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_notes"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/talkButton_notes_inside"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/talkButton_notes"
+        app:layout_constraintEnd_toEndOf="@+id/talkButton_notes"
+        app:layout_constraintStart_toStartOf="@+id/talkButton_notes"
+        app:layout_constraintTop_toTopOf="@+id/talkButton_notes"
+        app:srcCompat="@drawable/ic_mic_black" />
+
     <Button
         android:id="@+id/addMed_back_notes"
         android:layout_width="156dp"
         android:layout_height="56dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
         android:onClick="previousQuestion"
         android:text="@string/add_med_back_button"
-        android:textSize="24sp"
         android:textColor="@color/black"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_notes" />
+        app:layout_constraintTop_toBottomOf="@+id/talkButton_notes" />
 
     <Button
         android:id="@+id/addMed_next_notes"
         android:layout_width="156dp"
         android:layout_height="56dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="44dp"
         android:onClick="doneClicked"
         android:text="@string/add_med_done_button"
-        android:textSize="24sp"
         android:textColor="@color/black"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_notes" />
+        app:layout_constraintTop_toBottomOf="@+id/talkButton_notes" />
 
     <TextView
         android:id="@+id/addMedQuestion4"
@@ -49,8 +69,8 @@
 
     <EditText
         android:id="@+id/editText_notes"
-        android:layout_width="240dp"
-        android:layout_height="325dp"
+        android:layout_width="242dp"
+        android:layout_height="250dp"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:gravity="start|top"
