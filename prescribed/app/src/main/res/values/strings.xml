@@ -29,4 +29,5 @@
     <string name="date_hint">DD/MM/YYYY</string>
     <string name="notes_hint">Notes</string>
     <string name="talk">Talk</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
