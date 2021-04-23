@@ -48,4 +48,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addMedQuestion" />
 
+    <ImageView
+        android:id="@+id/talkButton_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addMed_next_name"
+        app:srcCompat="@drawable/green_mic_better" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
