@@ -13,11 +13,12 @@
         android:id="@+id/addMed_next_name"
         android:layout_width="156dp"
         android:layout_height="56dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/button"
         android:onClick="nextQuestion"
         android:text="@string/add_med_next_button"
-        android:textSize="24sp"
         android:textColor="@color/black"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,24 +39,37 @@
 
     <EditText
         android:id="@+id/addMedText_name"
-        android:layout_width="321dp"
+        android:layout_width="250dp"
         android:layout_height="46dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="@string/add_med_field0"
+        android:textColorHint="@color/hint"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addMedQuestion" />
 
     <ImageView
         android:id="@+id/talkButton_name"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/addMedText_name"
+        app:layout_constraintTop_toBottomOf="@+id/addMedQuestion"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/talkButton_name_inside"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addMed_next_name"
-        app:srcCompat="@drawable/green_mic_better" />
+        app:layout_constraintBottom_toBottomOf="@+id/talkButton_name"
+        app:layout_constraintEnd_toEndOf="@+id/talkButton_name"
+        app:layout_constraintStart_toStartOf="@+id/talkButton_name"
+        app:layout_constraintTop_toTopOf="@+id/talkButton_name"
+        app:srcCompat="@drawable/ic_mic_black" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
