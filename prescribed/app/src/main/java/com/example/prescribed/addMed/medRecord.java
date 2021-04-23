@@ -52,17 +52,28 @@ public class medRecord {
             nightMeds.add(medication);
         }
 
+        int newHour = hour;
+        boolean modded = false;
         if(freq == Frequency.HOURS && times < 24){
             while(true){
-                hour += times;
+                newHour += times;
 
-                if(hour > 24) break;
+                if(newHour > 24 || modded) {
+                    if(!modded && newHour%24 < hour){
+                        newHour = newHour % 24;
+                        modded = true;
+                    }
+                    else if(!modded && newHour%24 >= hour
+                            || (modded && newHour >= hour)){
+                        break;
+                    }
+                }
 
-                date.setHours(hour);
+                date.setHours(newHour);
 
                 Medication newMed = new Medication(name, (Date)date.clone(), times, freq, notes);
 
-                newTime = (hour*100) + minute;
+                newTime = (newHour*100) + minute;
 
                 if(newTime >= 500 && newTime < 1100){
                     morningMeds.add(newMed);
@@ -76,8 +87,6 @@ public class medRecord {
                 else{
                     nightMeds.add(newMed);
                 }
-
-
             }
         }
 
