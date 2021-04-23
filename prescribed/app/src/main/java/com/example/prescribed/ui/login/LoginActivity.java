@@ -23,6 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.prescribed.MainActivity;
 import com.example.prescribed.R;
 import com.example.prescribed.addMed.AddMedActivity;
 import com.example.prescribed.chat.ChatActivity;
@@ -73,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 if (loginResult.getSuccess() != null) {
                     updateUiWithUser(loginResult.getSuccess());
-                    startActivity(new Intent(LoginActivity.this, AddMedActivity.class));
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 }
                 setResult(Activity.RESULT_OK);
 
