@@ -59,12 +59,11 @@ public class medRecord {
                 newHour += times;
 
                 if(newHour > 24 || modded) {
-                    if(!modded && newHour%24 < hour){
+                    if(!modded && newHour%24 < hour && newHour % 24 <= hour - times){
                         newHour = newHour % 24;
                         modded = true;
                     }
-                    else if(!modded && newHour%24 >= hour
-                            || (modded && newHour >= hour)){
+                    else if(!(modded && newHour <= hour - times)){
                         break;
                     }
                 }
