@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1DFDA"
+    android:background="@color/background"
+    android:textAlignment="viewStart"
     tools:context="com.example.prescribed.addMed.AddMedActivity">
 
     <TextView
         android:id="@+id/addMedQuestion2"
         android:layout_width="341dp"
-        android:layout_height="63dp"
+        android:layout_height="74dp"
         android:text="@string/add_med_question1"
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,26 +24,28 @@
     <Button
         android:id="@+id/addMed_next_freq"
         android:layout_width="156dp"
-        android:layout_height="56dp"
+        android:layout_height="68dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:onClick="nextQuestion"
         android:text="@string/add_med_next_button"
-        android:textSize="24sp"
         android:textColor="@color/black"
+        android:textSize="24sp"
+        app:cornerRadius="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/freq_spinner" />
 
     <Button
         android:id="@+id/addMed_back_freq"
-        android:layout_width="156dp"
-        android:layout_height="56dp"
+        android:layout_width="160dp"
+        android:layout_height="68dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:onClick="previousQuestion"
         android:text="@string/add_med_back_button"
-        android:textSize="24sp"
         android:textColor="@color/black"
+        android:textSize="24sp"
+        app:cornerRadius="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/freq_spinner" />
 
@@ -51,7 +53,8 @@
         android:id="@+id/freq_spinner"
         android:layout_width="215dp"
         android:layout_height="62dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
+        android:dropDownWidth="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addMedText_freq" />
@@ -73,14 +76,19 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="103dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="12dp"
+        android:layout_width="102dp"
+        android:layout_height="54dp"
+        android:elegantTextHeight="true"
         android:text="Every"
-        android:textAlignment="textEnd"
-        android:textSize="24sp"
+        android:textAlignment="viewEnd"
+        android:textDirection="inherit"
+        android:textSize="28sp"
+        app:layout_constrainedHeight="false"
+        app:layout_constraintBottom_toTopOf="@+id/freq_spinner"
         app:layout_constraintEnd_toStartOf="@+id/addMedText_freq"
-        app:layout_constraintTop_toBottomOf="@+id/addMedQuestion2" />
+        app:layout_constraintHorizontal_bias="0.711"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addMedQuestion2"
+        app:layout_constraintVertical_bias="0.571" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
