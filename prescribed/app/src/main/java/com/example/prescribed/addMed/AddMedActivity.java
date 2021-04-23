@@ -3,6 +3,7 @@ package com.example.prescribed.addMed;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.RecognitionListener;
@@ -59,6 +60,17 @@ public class AddMedActivity extends AppCompatActivity {
             checkPermission();
         }
 
+        if(!SpeechRecognizer.isRecognitionAvailable(this)){
+            String appPackageName = "com.google.android.googlequicksearchbox";
+            try {
+                this.startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("market://details?id=" + appPackageName)));
+            } catch (android.content.ActivityNotFoundException anfe) {
+                this.startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+            }
+        }
+
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
 
         final Intent speechRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -71,6 +83,7 @@ public class AddMedActivity extends AppCompatActivity {
 
             @Override
             public void onBeginningOfSpeech() {
+                System.out.println("WE IN ONBEGINNINGOFSPEECH");
                 editText.setText("");
                 editText.setHint("Listening...");
             }
@@ -270,10 +283,6 @@ public class AddMedActivity extends AppCompatActivity {
     }
 
     public void doneClicked(View view){
-
-    }
-
-    public void voiceInputClicked(View view){
 
     }
 }
