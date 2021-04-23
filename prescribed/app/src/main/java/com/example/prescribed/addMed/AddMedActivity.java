@@ -24,7 +24,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.prescribed.MainActivity;
 import com.example.prescribed.R;
+import com.example.prescribed.ui.login.LoginActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -168,7 +170,7 @@ public class AddMedActivity extends AppCompatActivity {
 
                 questionCount++;
 
-                if(answers.size() > questionCount && answers.get(questionCount) != null){
+                if(!answers.get(questionCount).equals("") && !answers.get(questionCount).equals("~")){
                     String[] temp = answers.get(questionCount).split("~");
 
                     editText.setText(temp[0]);
@@ -194,7 +196,7 @@ public class AddMedActivity extends AppCompatActivity {
 
                 questionCount++;
 
-                if(answers.size() > questionCount && answers.get(questionCount) != null){
+                if(!answers.get(questionCount).equals("") && !answers.get(questionCount).equals("~")){
                     String[] temp = answers.get(questionCount).split("~");
 
                     editText.setText(temp[0]);
@@ -235,22 +237,26 @@ public class AddMedActivity extends AppCompatActivity {
             case 2:
                 questionCount--;
                 setContentView(R.layout.enter_med_freq);
-                String[] temp = answers.get(questionCount).split("~");
-
-                editText = (EditText) findViewById(R.id.addMedText_freq);
-                editText.setText(temp[0]);
 
                 freq_spinner = (Spinner) findViewById(R.id.freq_spinner);
                 ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.freq_spinner_array, android.R.layout.simple_spinner_item);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 freq_spinner.setAdapter(adapter);
 
-                //Sets spinner to the previous selection
-                String[] s = getResources().getStringArray(R.array.freq_spinner_array);
-                for(int i=0; i<s.length ;i++){
-                    if(temp[1].equals(s[i])){
-                        freq_spinner.setSelection(i);
-                        break;
+                if(!answers.get(questionCount).equals("") && !answers.get(questionCount).equals("~")) {
+                    String[] temp = answers.get(questionCount).split("~");
+
+                    editText = (EditText) findViewById(R.id.addMedText_freq);
+                    editText.setText(temp[0]);
+
+
+                    //Sets spinner to the previous selection
+                    String[] s = getResources().getStringArray(R.array.freq_spinner_array);
+                    for (int i = 0; i < s.length; i++) {
+                        if (temp[1].equals(s[i])) {
+                            freq_spinner.setSelection(i);
+                            break;
+                        }
                     }
                 }
                 break;
@@ -261,11 +267,12 @@ public class AddMedActivity extends AppCompatActivity {
                 editText = (EditText) findViewById(R.id.editTextTime);
                 editText2 = (EditText) findViewById(R.id.editTextDate);
 
-                String[] temp2 = answers.get(questionCount).split("~");
+                if(!answers.get(questionCount).equals("") && !answers.get(questionCount).equals("~")) {
+                    String[] temp2 = answers.get(questionCount).split("~");
 
-                editText.setText(temp2[0]);
-                editText2.setText(temp2[1]);
-
+                    editText.setText(temp2[0]);
+                    editText2.setText(temp2[1]);
+                }
                 break;
         }
     }
@@ -273,7 +280,9 @@ public class AddMedActivity extends AppCompatActivity {
     public void doneClicked(View view){
         answers.set(questionCount, editText.getText().toString());
         medRecord.storeMedication((ArrayList<String>)answers);
+        startActivity(new Intent(AddMedActivity.this, MainActivity.class));
     }
+
 
     private void setListener(ImageView view){
         view.setOnTouchListener(new View.OnTouchListener() {
