@@ -6,10 +6,10 @@ import java.util.List;
 
 public class medRecord {
 
-    public static List<Medication> morningMeds = new ArrayList<Medication>(); //500 to 1100
-    public static List<Medication> dayMeds = new ArrayList<Medication>(); //1100 to 1700
-    public static List<Medication> eveningMeds = new ArrayList<Medication>(); //1700 to 2300
-    public static List<Medication> nightMeds = new ArrayList<Medication>(); //2300 to 500
+    private static List<Medication> morningMeds = new ArrayList<Medication>(); //500 to 1100
+    private static List<Medication> dayMeds = new ArrayList<Medication>(); //1100 to 1700
+    private static List<Medication> eveningMeds = new ArrayList<Medication>(); //1700 to 2300
+    private static List<Medication> nightMeds = new ArrayList<Medication>(); //2300 to 500
 
 
     public static void storeMedication(ArrayList<String> medInfo){
@@ -83,4 +83,19 @@ public class medRecord {
 
     }
 
+    public static List<Medication> getMorningMeds() {
+        return morningMeds;
+    }
+
+    public static List<Medication> getDayMeds() {
+        return dayMeds;
+    }
+
+    public static List<Medication> getEveningMeds() {
+        return eveningMeds;
+    }
+
+    public static List<Medication> getNightMeds() {
+        return nightMeds;
+    }
 }
