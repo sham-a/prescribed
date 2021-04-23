@@ -36,11 +36,20 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent();
                     intent.setClassName("com.example.prescribed", "com.example.prescribed.chat.ChatActivity");
                     startActivity(intent);
-                case R.id.morning_button:
+                    break;
+                case R.id.add_button:
                     Intent intent1 = new Intent();
-                    intent1.setClassName("com.example.prescribed", "com.example.prescribed.MedicationActivity");
+                    intent1.setClassName("com.example.prescribed", "com.example.prescribed.addMed.AddMedActivity");
                     startActivity(intent1);
-                break;
+                    break;
+                case R.id.morning_button:
+                case R.id.day_button:
+                case R.id.evening_button:
+                case R.id.night_button:
+                    Intent intent2 = new Intent();
+                    intent2.setClassName("com.example.prescribed", "com.example.prescribed.MedicationActivity");
+                    startActivity(intent2);
+                    break;
             }
         }
 
