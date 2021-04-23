@@ -16,6 +16,7 @@ An Android application that helps our senior citizens manage their medication in
 Simply download the Prescribed.apk file in the directory path on your android device and enjoy!
 
 ## Small video describing the flow of the application
+https://drive.google.com/file/d/1G8KRK6OJ1XbLfK1Yup23Lfou4J1fRWO7/view?usp=sharing 
 
 ## Contributors
 
