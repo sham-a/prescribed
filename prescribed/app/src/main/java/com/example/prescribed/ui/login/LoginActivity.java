@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.example.prescribed.MainActivity;
 import com.example.prescribed.R;
+import com.example.prescribed.addMed.AddMedActivity;
 import com.example.prescribed.chat.ChatActivity;
 import com.example.prescribed.ui.login.LoginViewModel;
 import com.example.prescribed.ui.login.LoginViewModelFactory;
